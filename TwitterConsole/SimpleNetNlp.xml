@@ -1,0 +1,210 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>SimpleNetNlp</name>
+    </assembly>
+    <members>
+        <member name="T:SimpleNetNlp.Document">
+            <summary>
+            A representation of a Document. Most blobs of raw text should become documents.
+            </summary>
+        </member>
+        <member name="M:SimpleNetNlp.Document.#ctor(System.String)">
+            <summary>
+            Create a new document from the passed in text.
+            </summary>
+            <param name="text">The text of the document.</param>
+        </member>
+        <member name="P:SimpleNetNlp.Document.Sentences">
+            <summary>
+            Get the sentences in this document, as a list.
+            </summary>
+        </member>
+        <member name="T:SimpleNetNlp.Exceptions.MissingModelException">
+            <summary>
+            Thrown when library cannot find model file (specified at Message).
+            </summary>
+        </member>
+        <member name="T:SimpleNetNlp.Exceptions.UnhandledLibraryException">
+            <summary>
+            Thrown when an unexpected exception is caused by CoreNLP library.
+            </summary>
+        </member>
+        <member name="T:SimpleNetNlp.Extensions.JavaCollectionExtensions">
+            <summary>
+            Contains extension methods for java.util.Collection
+            </summary>
+        </member>
+        <member name="M:SimpleNetNlp.Extensions.JavaCollectionExtensions.ToList``2(java.util.Collection,System.Func{``0,``1})">
+            <summary>
+            Convert java.util.Collection that contains elements of type <typeparamref name="TSource"/>
+            to System.Collections.Generic.List of arbitary type <typeparamref name="TTarget"/> based on <paramref name="convertingFunction"/>
+            </summary>
+            <typeparam name="TSource">The source type of the Java collection elements.</typeparam>
+            <typeparam name="TTarget">The target type.</typeparam>
+            <param name="collection">Collection to convertion.</param>
+            <param name="convertingFunction">Function for converting <typeparamref name="TSource"/> element to <typeparamref name="TTarget"/></param>
+            <returns>A converted list.</returns>
+        </member>
+        <member name="T:SimpleNetNlp.Extensions.JavaIntegerExtensions">
+            <summary>
+            Contains extension methods for java.lang.Integer
+            </summary>
+        </member>
+        <member name="M:SimpleNetNlp.Extensions.JavaIntegerExtensions.ToInt(java.lang.Integer)">
+            <summary>
+            Convert java.lang.Integer to plain C# int.
+            </summary>
+            <param name="integer">Integer to convertion.</param>
+            <returns>A converted value.</returns>
+        </member>
+        <member name="T:SimpleNetNlp.Extensions.JavaListExtensions">
+            <summary>
+            Contains extension methods for java.util.List
+            </summary>
+        </member>
+        <member name="M:SimpleNetNlp.Extensions.JavaListExtensions.ToList``1(java.util.List)">
+            <summary>
+            Convert java.util.List to System.Collections.Generic.List of arbitrary type <typeparamref name="T"/>
+            </summary>
+            <typeparam name="T">The element type of the list.</typeparam>
+            <param name="list">List to convertion.</param>
+            <returns>A converted list.</returns>
+        </member>
+        <member name="M:SimpleNetNlp.Extensions.JavaListExtensions.ToList``2(java.util.List,System.Func{``0,``1})">
+            <summary>
+            Convert java.util.List that contains elements of type <typeparamref name="TSource"/>
+            to System.Collections.Generic.List of arbitary type <typeparamref name="TTarget"/> based on <paramref name="convertingFunction"/>
+            </summary>
+            <typeparam name="TSource">The source type of the Java list elements.</typeparam>
+            <typeparam name="TTarget">The target type.</typeparam>
+            <param name="list">List to convertion.</param>
+            <param name="convertingFunction">Function for converting <typeparamref name="TSource"/> element to <typeparamref name="TTarget"/></param>
+            <returns>A converted list.</returns>
+        </member>
+        <member name="T:SimpleNetNlp.Extensions.StanfordSentimentExtensions">
+            <summary>
+            Contains extension methods for edu.stanford.nlp.simple.SentimentClass
+            </summary>
+        </member>
+        <member name="M:SimpleNetNlp.Extensions.StanfordSentimentExtensions.ToSentimentClass(edu.stanford.nlp.simple.SentimentClass)">
+            <summary>
+            Convert value from edu.stanford.nlp.simple.SentimentClass to corresponding C# enum.
+            </summary>
+            <param name="sentiment">Value to convertion.</param>
+            <returns>A converted value.</returns>
+        </member>
+        <member name="T:SimpleNetNlp.Sentence">
+            <summary>
+            A representation of a single Sentence.
+            </summary>
+        </member>
+        <member name="M:SimpleNetNlp.Sentence.#ctor(System.String)">
+            <summary>
+            Create a new sentence from the given text, assuming the entire text is just one sentence.
+            </summary>
+            <param name="text">The text of the sentence.</param>
+        </member>
+        <member name="M:SimpleNetNlp.Sentence.#ctor(edu.stanford.nlp.simple.Sentence)">
+            <summary>
+            Create a new sentence directly from the given CoreNLP Sentence isntance.
+            </summary>
+            <param name="nlpSentence">The CoreNLP Sentence.</param>
+        </member>
+        <member name="P:SimpleNetNlp.Sentence.CharacterOffsetBegin">
+            <summary>
+            The begin position of each token in the sentence.
+            </summary>
+        </member>
+        <member name="P:SimpleNetNlp.Sentence.CharacterOffsetEnd">
+            <summary>
+            The end position of each token in the sentence.
+            </summary>
+        </member>
+        <member name="P:SimpleNetNlp.Sentence.SentenceIndex">
+            <summary>
+            The index of the sentence within the document.
+            </summary>
+        </member>
+        <member name="P:SimpleNetNlp.Sentence.SentenceTokenOffsetBegin">
+            <summary>
+            The begin position (in tokens) of the sentence within the document.
+            </summary>
+        </member>
+        <member name="P:SimpleNetNlp.Sentence.SentenceTokenOffsetEnd">
+            <summary>
+            The end position (in tokens) of the sentence within the document.
+            </summary>
+        </member>
+        <member name="P:SimpleNetNlp.Sentence.Lemmas">
+            <summary>
+            The lemmas of the sentence, one for each token in the sentence.
+            </summary>
+            <exception cref="T:SimpleNetNlp.Exceptions.MissingModelException">Thrown when library cannot find model files: PosTagger</exception>
+            <exception cref="T:SimpleNetNlp.Exceptions.UnhandledLibraryException">Thrown when an unexpected exception is caused by CoreNLP library.</exception>
+        </member>
+        <member name="P:SimpleNetNlp.Sentence.NerTags">
+            <summary>
+            The named entity tags of the sentence, one for each token in the sentence.
+            </summary>
+            <exception cref="T:SimpleNetNlp.Exceptions.MissingModelException">Thrown when library cannot find model files: PosTagger, Ner</exception>
+            <exception cref="T:SimpleNetNlp.Exceptions.UnhandledLibraryException">Thrown when an unexpected exception is caused by CoreNLP library.</exception>
+        </member>
+        <member name="P:SimpleNetNlp.Sentence.PosTags">
+            <summary>
+            The part of speech tags of the sentence, one for each token in the sentence.
+            </summary>
+            <exception cref="T:SimpleNetNlp.Exceptions.MissingModelException">Thrown when library cannot find model files: PosTagger</exception>
+            <exception cref="T:SimpleNetNlp.Exceptions.UnhandledLibraryException">Thrown when an unexpected exception is caused by CoreNLP library.</exception>
+        </member>
+        <member name="P:SimpleNetNlp.Sentence.OpenIe">
+            <summary>
+            Get the OpenIE triples associated with this sentence. 
+            <para>Returns a collection of RelationTriple objects representing the OpenIE triples in the sentence.</para>
+            </summary>
+            <exception cref="T:SimpleNetNlp.Exceptions.MissingModelException">Thrown when library cannot find model files: PosTagger, Parser, Naturalli</exception>
+            <exception cref="T:SimpleNetNlp.Exceptions.UnhandledLibraryException">Thrown when an unexpected exception is caused by CoreNLP library.</exception>
+        </member>
+        <member name="P:SimpleNetNlp.Sentence.Governors">
+            <summary>
+            Returns the governors of a sentence.
+            <para>The resulting list is of the same size as the original sentence, with each element being either
+            the governor index, or null if the node has no known governor.</para>
+            <para>The root has index -1.</para>
+            </summary>
+            <exception cref="T:SimpleNetNlp.Exceptions.MissingModelException">Thrown when library cannot find model files: PosTagger, Parser</exception>
+            <exception cref="T:SimpleNetNlp.Exceptions.UnhandledLibraryException">Thrown when an unexpected exception is caused by CoreNLP library.</exception>
+        </member>
+        <member name="P:SimpleNetNlp.Sentence.IncomingDependencyLabels">
+            <summary>
+            Returns the incoming dependency labels of a sentence.
+            <para>The resulting list is of the same size as the original sentence, with each element being either
+            the incoming dependency label, or null.</para>
+            </summary>
+            <exception cref="T:SimpleNetNlp.Exceptions.MissingModelException">Thrown when library cannot find model files: PosTagger, Parser</exception>
+            <exception cref="T:SimpleNetNlp.Exceptions.UnhandledLibraryException">Thrown when an unexpected exception is caused by CoreNLP library.</exception>
+        </member>
+        <member name="P:SimpleNetNlp.Sentence.Sentiment">
+            <summary>
+            The sentiment of this sentence (e.g., positive / negative).
+            </summary>
+            <exception cref="T:SimpleNetNlp.Exceptions.MissingModelException">Thrown when library cannot find model files: LexParser, Sentiment</exception>
+            <exception cref="T:SimpleNetNlp.Exceptions.UnhandledLibraryException">Thrown when an unexpected exception is caused by CoreNLP library.</exception>
+        </member>
+        <member name="P:SimpleNetNlp.Sentence.Words">
+            <summary>
+            The words of the sentence.
+            </summary>
+        </member>
+        <member name="P:SimpleNetNlp.Sentence.OriginalWords">
+            <summary>
+            The original (unprocessed) words of the sentence.
+            </summary>
+        </member>
+        <member name="T:SimpleNetNlp.SentimentClass">
+            <summary>
+            Enum to represent a sentiment value.
+            </summary>
+        </member>
+    </members>
+</doc>
